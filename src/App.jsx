@@ -111,85 +111,67 @@ export default function App() {
   };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        backgroundColor: "#000",
-        color: "#fff",
-        padding: "2rem 1rem",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1000px",
-          margin: "0 auto",
-          textAlign: "center",
-        }}
-      >
-        <h1
-          style={{
-            fontSize: "2.5rem",
-            color: "#60a5fa",
-            fontWeight: "bold",
-            marginBottom: "0.5rem",
-          }}
-        >
-          ATAI
-        </h1>
-        <p
-          style={{
-            color: "#93c5fd",
-            fontStyle: "italic",
-            marginBottom: "2rem",
-          }}
-        >
+    <div style={{
+      minHeight: "100vh",
+      backgroundColor: "#000",
+      color: "#fff",
+      padding: "2rem",
+      fontFamily: "Arial, sans-serif"
+    }}>
+      <div style={{
+        maxWidth: "1000px",
+        margin: "0 auto",
+        textAlign: "center",
+        padding: "1rem"
+      }}>
+        <h1 style={{
+          fontSize: "2.5rem",
+          color: "#60a5fa",
+          fontWeight: "bold",
+          marginBottom: "0.5rem"
+        }}>ATAI</h1>
+        <p style={{
+          color: "#93c5fd",
+          fontStyle: "italic",
+          marginBottom: "2rem"
+        }}>
           "Welcome, traveler. I am ATAI, your intelligent travel assistant."
         </p>
 
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: "1rem",
-            marginBottom: "1rem",
-          }}
-        >
-          <button
-            style={{
-              border: "1px solid #60a5fa",
-              color: "#93c5fd",
-              background: "none",
-              padding: "0.5rem 1rem",
-              borderRadius: "6px",
-              minWidth: "150px",
-            }}
-          >
+        <div style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "1rem",
+          marginBottom: "1rem"
+        }}>
+          <button style={{
+            border: "1px solid #60a5fa",
+            color: "#93c5fd",
+            background: "none",
+            padding: "0.5rem 1rem",
+            borderRadius: "6px"
+          }}>
             <Briefcase size={14} style={{ marginRight: "4px" }} /> Corporate Filter
           </button>
-          <button
-            style={{
-              border: "1px solid #60a5fa",
-              color: "#93c5fd",
-              background: "none",
-              padding: "0.5rem 1rem",
-              borderRadius: "6px",
-              minWidth: "150px",
-            }}
-          >
-            <Globe2 size={14} style={{ marginRight: "4px" }} /> Save / Share / Demo
+          <button style={{
+            border: "1px solid #60a5fa",
+            color: "#93c5fd",
+            background: "none",
+            padding: "0.5rem 1rem",
+            borderRadius: "6px"
+          }}>
+            <Globe2 size={14} style={{ marginRight: "4px" }} /> Save / Share / Demo Mode
           </button>
         </div>
 
-        <div
-          style={{
-            background: "#1e293b",
-            border: "1px solid #3b82f6",
-            borderRadius: "1rem",
-            padding: "1rem",
-            marginBottom: "2rem",
-          }}
-        >
+        <div style={{
+          background: "#1e293b",
+          border: "1px solid #3b82f6",
+          borderRadius: "1rem",
+          padding: "1rem",
+          marginBottom: "2rem"
+        }}>
           <textarea
             placeholder="Type your travel request here like a command console..."
             style={{
@@ -198,10 +180,11 @@ export default function App() {
               padding: "1rem",
               background: "#000",
               color: "#60a5fa",
-              borderColor: "#2563eb",
+              border: "1px solid #2563eb",
               marginBottom: "1rem",
               borderRadius: "8px",
               resize: "none",
+              boxSizing: "border-box"
             }}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -215,7 +198,7 @@ export default function App() {
               padding: "1rem",
               borderRadius: "8px",
               fontWeight: "bold",
-              cursor: "pointer",
+              cursor: "pointer"
             }}
           >
             <Sparkles size={18} style={{ marginRight: "8px" }} /> Activate ATAI
@@ -223,88 +206,48 @@ export default function App() {
         </div>
 
         {response && (
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr",
-              gap: "2rem",
-            }}
-          >
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "1fr",
+            gap: "2rem"
+          }}>
             {response.options.map((option, index) => (
-              <div
-                key={index}
-                style={{
-                  backgroundColor: "#1e293b",
-                  border: "1px solid #60a5fa",
-                  borderRadius: "1rem",
-                  padding: "1.5rem",
-                  textAlign: "left",
-                }}
-              >
-                <h2
-                  style={{
-                    color: "#93c5fd",
-                    fontSize: "1.25rem",
-                    fontWeight: "bold",
-                    marginBottom: "0.5rem",
-                  }}
-                >
-                  {option.type}
-                </h2>
-                <p style={{ fontSize: "0.9rem", color: "#9ca3af" }}>
-                  Passengers: {option.passengers}
-                </p>
+              <div key={index} style={{
+                backgroundColor: "#1e293b",
+                border: "1px solid #60a5fa",
+                borderRadius: "1rem",
+                padding: "1.5rem",
+                textAlign: "left"
+              }}>
+                <h2 style={{
+                  color: "#93c5fd",
+                  fontSize: "1.25rem",
+                  fontWeight: "bold",
+                  marginBottom: "0.5rem"
+                }}>{option.type}</h2>
+                <p style={{ fontSize: "0.9rem", color: "#9ca3af" }}>Passengers: {option.passengers}</p>
 
                 <div style={{ marginTop: "1rem", marginBottom: "1rem" }}>
-                  <h3
-                    style={{
-                      color: "#fff",
-                      fontWeight: "600",
-                      marginBottom: "0.5rem",
-                    }}
-                  >
+                  <h3 style={{ color: "#fff", fontWeight: "600", marginBottom: "0.5rem" }}>
                     <Plane size={18} /> Flight Details
                   </h3>
                   <p style={{ fontSize: "0.9rem", color: "#e5e7eb" }}>
-                    {option.flight.airline} {option.flight.flightNumber}:{" "}
-                    {option.flight.from} → {option.flight.to}
+                    {option.flight.airline} {option.flight.flightNumber}: {option.flight.from} → {option.flight.to}
                   </p>
                   <p style={{ fontSize: "0.8rem", color: "#9ca3af" }}>
-                    Departure: {option.flight.departure}, Arrival:{" "}
-                    {option.flight.arrival}
-                  </p>
-                  <p
-                    style={{
-                      fontSize: "0.8rem",
-                      color: "#9ca3af",
-                    }}
-                    onClick={() => openFareModal(option.flight.fareConditions)}
-                  >
-                    Fare:{" "}
-                    <span
-                      title={option.flight.fareConditions}
-                      style={{
-                        textDecoration: "underline",
-                        cursor: "help",
-                        color: "#60a5fa",
-                      }}
-                    >
-                      {option.flight.fare}
-                    </span>
+                    Departure: {option.flight.departure}, Arrival: {option.flight.arrival}
                   </p>
                   <p style={{ fontSize: "0.8rem", color: "#9ca3af" }}>
-                    Services: {option.flight.services.join(", ") || "None"}
+                    Return: {option.flight.returnFlight.departure} → {option.flight.returnFlight.arrival}
                   </p>
+                  <p style={{ fontSize: "0.8rem", color: "#9ca3af" }} onClick={() => openFareModal(option.flight.fareConditions)}>
+                    Fare: <span style={{ textDecoration: "underline", cursor: "help", color: "#60a5fa" }}>{option.flight.fare}</span>
+                  </p>
+                  <p style={{ fontSize: "0.8rem", color: "#9ca3af" }}>Services: {option.flight.services.join(", ")}</p>
                 </div>
 
                 <div>
-                  <h3
-                    style={{
-                      color: "#fff",
-                      fontWeight: "600",
-                      marginBottom: "0.5rem",
-                    }}
-                  >
+                  <h3 style={{ color: "#fff", fontWeight: "600", marginBottom: "0.5rem" }}>
                     <Hotel size={18} /> Hotel
                   </h3>
                   <img
@@ -316,55 +259,30 @@ export default function App() {
                       objectFit: "cover",
                       borderRadius: "0.5rem",
                       marginBottom: "0.5rem",
-                      cursor: "pointer",
+                      cursor: "pointer"
                     }}
                     onClick={() => openModal(option.hotel)}
                   />
-                  <p
-                    style={{
-                      color: "#60a5fa",
-                      textDecoration: "underline",
-                      cursor: "pointer",
-                    }}
-                    onClick={() => openModal(option.hotel)}
-                  >
+                  <p style={{ color: "#60a5fa", textDecoration: "underline", cursor: "pointer" }} onClick={() => openModal(option.hotel)}>
                     {option.hotel.name}
                   </p>
-                  <p
-                    style={{
-                      fontSize: "0.8rem",
-                      color: "#d1d5db",
-                    }}
-                  >
-                    {option.hotel.stars}⭐ - Rating: {option.hotel.rating}
-                  </p>
-                  <p style={{ fontSize: "0.8rem", color: "#9ca3af" }}>
-                    {option.hotel.distance}
-                  </p>
-                  <p style={{ fontSize: "0.8rem", color: "#9ca3af" }}>
-                    Room: {option.hotel.room}
-                  </p>
-                  <p style={{ fontSize: "0.8rem", color: "#9ca3af" }}>
-                    Meal: {option.hotel.meal}
-                  </p>
+                  <p style={{ fontSize: "0.8rem", color: "#d1d5db" }}>{option.hotel.stars}⭐ - Rating: {option.hotel.rating}</p>
+                  <p style={{ fontSize: "0.8rem", color: "#9ca3af" }}>{option.hotel.distance}</p>
+                  <p style={{ fontSize: "0.8rem", color: "#9ca3af" }}>Room: {option.hotel.room}</p>
+                  <p style={{ fontSize: "0.8rem", color: "#9ca3af" }}>Meal: {option.hotel.meal}</p>
                 </div>
 
-                <p
-                  style={{
-                    color: "#4ade80",
-                    fontWeight: "bold",
-                    fontSize: "1.1rem",
-                    marginTop: "1rem",
-                  }}
-                >
-                  {option.price}
-                </p>
+                <p style={{
+                  color: "#4ade80",
+                  fontWeight: "bold",
+                  fontSize: "1.1rem",
+                  marginTop: "1rem"
+                }}>{option.price}</p>
               </div>
             ))}
           </div>
         )}
 
-        {/* Modal */}
         {modalOpen && (selectedHotel || selectedFare) && (
           <div
             style={{
@@ -377,21 +295,20 @@ export default function App() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              zIndex: 1000,
-              padding: "1rem",
+              padding: "1rem"
             }}
             onClick={closeModal}
           >
             <div
               style={{
                 backgroundColor: "#1e293b",
-                padding: "1rem",
+                padding: "2rem",
                 borderRadius: "1rem",
-                maxWidth: "100%",
+                maxWidth: "600px",
                 width: "100%",
-                maxHeight: "90vh",
+                maxHeight: "80vh",
                 overflowY: "auto",
-                position: "relative",
+                position: "relative"
               }}
               onClick={(e) => e.stopPropagation()}
             >
@@ -413,13 +330,7 @@ export default function App() {
 
               {selectedHotel && (
                 <>
-                  <h2
-                    style={{
-                      color: "#93c5fd",
-                      fontSize: "1.5rem",
-                      fontWeight: "bold",
-                    }}
-                  >
+                  <h2 style={{ color: "#93c5fd", fontSize: "1.5rem", fontWeight: "bold" }}>
                     {selectedHotel.name}
                   </h2>
                   <img
@@ -430,31 +341,16 @@ export default function App() {
                       height: "300px",
                       objectFit: "cover",
                       borderRadius: "0.5rem",
-                      marginBottom: "1rem",
+                      marginBottom: "1rem"
                     }}
                   />
-                  <p style={{ color: "#d1d5db", fontSize: "1rem" }}>
-                    {selectedHotel.details}
-                  </p>
+                  <p style={{ color: "#d1d5db", fontSize: "1rem" }}>{selectedHotel.details}</p>
                   <p style={{ color: "#9ca3af", fontSize: "1rem" }}>
-                    Location:{" "}
-                    <a
-                      href={`https://www.google.com/maps?q=${selectedHotel.location}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {selectedHotel.location}
-                    </a>
+                    Location: <a href={`https://www.google.com/maps?q=${selectedHotel.location}`} target="_blank" rel="noopener noreferrer">{selectedHotel.location}</a>
                   </p>
-                  <p style={{ color: "#9ca3af", fontSize: "1rem" }}>
-                    Room: {selectedHotel.room}
-                  </p>
-                  <p style={{ color: "#9ca3af", fontSize: "1rem" }}>
-                    Meal: {selectedHotel.meal}
-                  </p>
-                  <p style={{ color: "#d1d5db", fontSize: "1rem" }}>
-                    Rating: {selectedHotel.rating}⭐
-                  </p>
+                  <p style={{ color: "#9ca3af", fontSize: "1rem" }}>Room: {selectedHotel.room}</p>
+                  <p style={{ color: "#9ca3af", fontSize: "1rem" }}>Meal: {selectedHotel.meal}</p>
+                  <p style={{ color: "#d1d5db", fontSize: "1rem" }}>Rating: {selectedHotel.rating}⭐</p>
                 </>
               )}
 
@@ -473,7 +369,7 @@ export default function App() {
                   color: "#fff",
                   borderRadius: "8px",
                   cursor: "pointer",
-                  fontWeight: "bold",
+                  fontWeight: "bold"
                 }}
               >
                 Close
